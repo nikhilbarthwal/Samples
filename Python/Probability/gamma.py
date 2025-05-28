@@ -23,4 +23,3 @@ plt.title('Gamma Distribution')
 
 # Display the plot
 plt.show()
-

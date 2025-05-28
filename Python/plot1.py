@@ -24,7 +24,7 @@ ax.set_title('Interactive Sine Curve', fontsize=14)
 
 # Add grid and text labels
 ax.grid(True, linestyle='--', alpha=0.7)
-ax.text(0.5, -1.8, 'Interactive Sine Wave Demonstration', 
+ax.text(0.5, -1.8, 'Interactive Sine Wave Demonstration',
         fontsize=10, ha='center', color='darkblue')
 ax.text(np.pi/2, 1.5, 'Peak', fontsize=10, color='red')
 ax.text(3*np.pi/2, -1.5, 'Trough', fontsize=10, color='red')
@@ -33,7 +33,7 @@ ax.text(3*np.pi/2, -1.5, 'Trough', fontsize=10, color='red')
 zero_crossings = [0, np.pi, 2*np.pi]
 for x_val in zero_crossings:
     ax.plot(x_val, 0, 'ro', markersize=8, alpha=0.5)
-    ax.text(x_val, 0.2, f'{x_val/np.pi:.1f}π', 
+    ax.text(x_val, 0.2, f'{x_val/np.pi:.1f}',
             ha='center', fontsize=10, color='darkgreen')
 
 # Create slider axes
@@ -60,6 +60,3 @@ amp_slider.on_changed(update)
 phase_slider.on_changed(update)
 
 plt.show()
-
-
-        

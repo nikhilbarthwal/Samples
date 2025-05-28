@@ -25,12 +25,12 @@ ax.set_title('Interactive Sine Curve with Arrow Controls', fontsize=14)
 ax.grid(True, linestyle='--', alpha=0.7)
 
 # Add text labels below the plot
-info_text = plt.figtext(0.5, 0.15, 
+info_text = plt.figtext(0.5, 0.15,
                        f'Current: Frequency = {freq:.1f} Hz, Amplitude = {amp:.1f}, Phase = {phase:.1f} rad',
                        ha='center', fontsize=12, bbox=dict(facecolor='lightgray', alpha=0.5))
 
 # Add descriptive text
-plt.figtext(0.5, 0.1, 
+plt.figtext(0.5, 0.1,
            'Use the arrow buttons to adjust the sine wave parameters',
            ha='center', fontsize=10, style='italic')
 
@@ -49,12 +49,12 @@ ax_phase_up = plt.axes([0.87, 0.3, 0.1, 0.05])
 ax_phase_down = plt.axes([0.87, 0.24, 0.1, 0.05])
 
 # Create buttons
-btn_freq_up = Button(ax_freq_up, '↑', color='lightgoldenrodyellow')
-btn_freq_down = Button(ax_freq_down, '↓', color='lightgoldenrodyellow')
-btn_amp_up = Button(ax_amp_up, '↑', color='lightblue')
-btn_amp_down = Button(ax_amp_down, '↓', color='lightblue')
-btn_phase_up = Button(ax_phase_up, '↑', color='lightgreen')
-btn_phase_down = Button(ax_phase_down, '↓', color='lightgreen')
+btn_freq_up = Button(ax_freq_up, '', color='lightgoldenrodyellow')
+btn_freq_down = Button(ax_freq_down, '', color='lightgoldenrodyellow')
+btn_amp_up = Button(ax_amp_up, '', color='lightblue')
+btn_amp_down = Button(ax_amp_down, '', color='lightblue')
+btn_phase_up = Button(ax_phase_up, '', color='lightgreen')
+btn_phase_down = Button(ax_phase_down, '', color='lightgreen')
 
 # Add button labels
 plt.figtext(0.92, 0.72, 'Frequency', ha='left', fontsize=10)

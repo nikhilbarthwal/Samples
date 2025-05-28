@@ -22,4 +22,3 @@ plt.title('Chi-Square Distribution')
 
 # Display the plot
 plt.show()
-

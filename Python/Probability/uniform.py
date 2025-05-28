@@ -21,4 +21,3 @@ plt.title('Uniform Distribution')
 
 # Display the plot
 plt.show()
-

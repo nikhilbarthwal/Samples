@@ -37,4 +37,3 @@ class Block(Statement):
 if __name__ == "__main__":
     n: Statement = Block([Line("nikhil"), Block([Line("nik"), Block([Line("middle")]), Line("hil")])])
     n.print("example.txt")
-	

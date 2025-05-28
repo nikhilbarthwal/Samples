@@ -39,7 +39,7 @@ class MyWindow(QMainWindow):
 
         # Add subplot to the figure
         ax = self.figure.add_subplot(111)
-        
+
         # Plot the data
         ax.plot(x, y)
         ax.set_title('Sin Wave')
@@ -57,4 +57,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

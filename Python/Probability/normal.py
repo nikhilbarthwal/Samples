@@ -17,4 +17,3 @@ plt.plot(bins, 1/(sigma * np.sqrt(2 * np.pi)) *
 
 # Display the plot
 plt.show()
-

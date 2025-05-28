@@ -14,4 +14,3 @@ plt.plot(x, y1, color="black", drawstyle="steps")
 plt.plot(x, y2, color="black", drawstyle="steps")
 
 plt.show()
-

@@ -23,4 +23,3 @@ plt.title('Beta Distribution')
 
 # Display the plot
 plt.show()
-
