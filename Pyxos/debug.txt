@@ -1,0 +1,16 @@
+db.add_subject(subject, file_id, True)
+db.add_access(file_id, user, access_type, location)
+
+db.check_access(file_id, user_id, location)
+db.remove_user(file_id, user_id)
+
+db.acknowledge_dsr(file_id, subject_id)
+
+
+
+"""
+File Ownership Table: File Id, Owner
+File Access Map: User, FileId, Bool (Tue for RW and false for R only), country
+User Table: Users & Passwords
+DSR Table: Subject Id, File ID, bool (Tue: Keep it, False: Delete it)
+"""
