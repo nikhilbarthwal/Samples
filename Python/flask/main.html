@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e8;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>User Registration Form</h2>
+        
+        <!-- Form with GET method -->
+        <form action="http://127.0.0.1:5000/package"  method="POST">
+            <div class="form-group">
+                <label for="width">Width:</label>
+                <input type="string" id="width" name="width" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="height">Height:</label>
+                <input type="string" id="height" name="height" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="length">Length:</label>
+                <input type="number" id="length" name="length" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="mass">Mass:</label>
+                <input type="number" id="mass" name="mass" required>
+            </div>
+
+            <!-- div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select a country</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ca">Canada</option>
+                    <option value="au">Australia</option>
+                    <option value="de">Germany</option>
+                    <option value="fr">France</option>
+                    <option value="jp">Japan</option>
+                    <option value="br">Brazil</option>
+                    <option value="in">India</option>
+                    <option value="other">Other</option>
+                </select>
+            </div -->
+            
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        
+        <!-- div id="result" class="result">
+            <h3>Form Data (GET Parameters):</h3>
+            <p id="resultText"></p>
+        </div -->
+    </div>
+
+    <!-- script>
+        // Handle form submission to show the GET parameters
+        document.getElementById('userForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+            
+            const formData = new FormData(this);
+            const params = new URLSearchParams();
+            
+            for (let [key, value] of formData.entries()) {
+                params.append(key, value);
+            }
+            
+            const queryString = params.toString();
+            const resultDiv = document.getElementById('result');
+            const resultText = document.getElementById('resultText');
+            
+            resultText.innerHTML = `
+                <strong>URL would be:</strong><br>
+                /register?${queryString}<br><br>
+                <strong>Individual parameters:</strong><br>
+                • Username: ${formData.get('username')}<br>
+                • Email: ${formData.get('email')}<br>
+                • Age: ${formData.get('age')}<br>
+                • Country: ${formData.get('country')}
+            `;
+            
+            resultDiv.style.display = 'block';
+        });
+    </script -->
+</body>
+</html>
+
