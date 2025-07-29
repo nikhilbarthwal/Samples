@@ -1,0 +1,92 @@
+[
+    {
+        "devId": "AND-0000001",
+        "type": "android",
+        "location": "lab_e3",
+        "ipAddr": "172.23.23.01"
+    },
+    {
+        "devId": "AND-0000002",
+        "type": "android",
+        "location": "lab_e1",
+        "ipAddr": "172.23.23.02"
+    },
+    {
+        "devId": "AND-0000003",
+        "type": "android",
+        "location": "lab_e3",
+        "ipAddr": "172.23.23.03"
+    },
+    {
+        "devId": "AND-0000004",
+        "type": "android",
+        "location": "lab_e4",
+        "ipAddr": "172.23.23.04"
+    },
+    {
+        "devId": "AND-0000005",
+        "type": "android",
+        "location": "lab_e2",
+        "ipAddr": "172.23.23.05"
+    },
+    {
+        "devId": "IPH-0000001",
+        "type": "iphone",
+        "location": "lab_e3",
+        "usbAddr": "2:24"
+    },
+    {
+        "devId": "IPH-0000002",
+        "type": "iphone",
+        "location": "lab_e3",
+        "usbAddr": "1:5"
+    },
+    {
+        "devId": "IPH-0000003",
+        "type": "iphone",
+        "location": "lab_e4",
+        "usbAddr": "1:8"
+    },
+    {
+        "devId": "IPH-0000004",
+        "type": "iphone",
+        "location": "lab_e3",
+        "usbAddr": "2:4"
+    },
+    {
+        "devId": "IPH-0000005",
+        "type": "iphone",
+        "location": "lab_e2",
+        "usbAddr": "3:4"
+    },
+    {
+        "devId": "TV-LG-0000001",
+        "type": "tv",
+        "location": "lab_e2",
+        "ipAddr": "175.23.23.01"
+    },
+    {
+        "devId": "TV-SG-0000002",
+        "type": "tv",
+        "location": "lab_e4",
+        "ipAddr": "175.23.23.02"
+    },
+    {
+        "devId": "TV-TCL-0000003",
+        "type": "tv",
+        "location": "lab_e2",
+        "ipAddr": "175.23.23.03"
+    },
+    {
+        "devId": "TV-LG-0000004",
+        "type": "tv",
+        "location": "lab_e2",
+        "ipAddr": "175.23.23.04"
+    },
+    {
+        "devId": "TV-LG-0000005",
+        "type": "tv",
+        "location": "lab_e3",
+        "ipAddr": "175.23.23.05"
+    }
+]
