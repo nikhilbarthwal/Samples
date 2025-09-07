@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array\Array.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSockets", "WebSockets\WebSockets.csproj", "{1A39DF59-D428-4860-8156-15AEB4241001}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Plot", "Plot\Plot.fsproj", "{6447C858-6F56-46C0-A053-2177FB38B19A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1A39DF59-D428-4860-8156-15AEB4241001}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A39DF59-D428-4860-8156-15AEB4241001}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A39DF59-D428-4860-8156-15AEB4241001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6447C858-6F56-46C0-A053-2177FB38B19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6447C858-6F56-46C0-A053-2177FB38B19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6447C858-6F56-46C0-A053-2177FB38B19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6447C858-6F56-46C0-A053-2177FB38B19A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
