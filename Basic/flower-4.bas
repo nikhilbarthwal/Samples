@@ -1,0 +1,14 @@
+   10 CLS
+   20 SCREEN 1
+   30 T=100:F=5
+   40 FOR A =-30 TO 30 STEP .095
+   50 R=T*SIN((A+F)/3)
+   60 X=160+R*COS(A)
+   70 Y=100+R*SIN(A)
+   80 IF A=-30 THEN
+   90 PSET (X,Y)
+   95 DRAW "R2L1ND1U1"
+  110 LINE -(X,Y)
+  120 F=F+.1
+  130 NEXT
+  140 END

@@ -1,0 +1,12 @@
+   10 CLS
+   20 SCREEN 1
+   30 T=100:F=5
+   40 FOR A =0 TO 9.45 STEP .095
+   50 R=T*SIN((A+F)/5)
+   60 X=160+R*COS(A)
+   70 Y=100+R*SIN(A)
+   90 PSET (X,Y)
+   95 DRAW "R4L2ND2U2"
+  120 F=F+1
+  130 NEXT
+  140 END
