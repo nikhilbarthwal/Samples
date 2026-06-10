@@ -26,9 +26,13 @@ type App() =
             let window2 = MainWindow("Sin Curve Plotter  Window 2", 30.0)
             window2.Position <- PixelPoint(140, 140)
 
-            // The lifetime shows MainWindow automatically; show the second one explicitly.
+            let window3 = MainWindow("Sin Curve Plotter  Window 3", 60.0)
+            window3.Position <- PixelPoint(200, 200)
+
+            // The lifetime shows MainWindow automatically; show the others explicitly.
             desktop.MainWindow <- window1
             window2.Show()
+            window3.Show()
         | _ -> ()
 
         base.OnFrameworkInitializationCompleted()
