@@ -5,18 +5,20 @@ open Avalonia.Controls
 open Avalonia.Layout
 open Avalonia.Media
 
-type MainWindow() as this =
+/// A standalone plotter window. Each instance owns its own plot control,
+/// slider, and label, so multiple windows run fully independently.
+type MainWindow(windowTitle: string, initialValue: float) as this =
     inherit Window()
 
     //  Plot control
     let plot =
         SinPlotControl(
-            Frequency = 1.0,
+            Frequency = initialValue / 10.0,
             Margin = Thickness(20.0, 8.0, 20.0, 0.0))
 
     let freqLabel =
         TextBlock(
-            Text = "1.0 Hz",
+            Text = $"{initialValue / 10.0:F1} Hz",
             Foreground = SolidColorBrush(Color.FromRgb(130uy, 200uy, 255uy)),
             FontSize = 12.0,
             FontWeight = FontWeight.SemiBold,
@@ -27,7 +29,7 @@ type MainWindow() as this =
         Slider(
             Minimum = 1.0,
             Maximum = 100.0,
-            Value = 10.0,
+            Value = initialValue,
             TickFrequency = 10.0,
             IsSnapToTickEnabled = false,
             Foreground = SolidColorBrush(Color.FromRgb(100uy, 180uy, 255uy)),
@@ -36,7 +38,7 @@ type MainWindow() as this =
             Margin = Thickness(0.0, 0.0, 20.0, 0.0))
 
     do
-        this.Title      <- "Sin Curve Plotter"
+        this.Title      <- windowTitle
         this.Width      <- 820.0
         this.Height     <- 560.0
         this.MinWidth   <- 600.0
@@ -46,7 +48,7 @@ type MainWindow() as this =
         //  Title
         let title =
             TextBlock(
-                Text = "Sin Curve Plotter",
+                Text = windowTitle,
                 FontSize = 15.0,
                 FontWeight = FontWeight.SemiBold,
                 Foreground = SolidColorBrush(Color.FromRgb(130uy, 200uy, 255uy)),
@@ -89,6 +91,9 @@ type MainWindow() as this =
         root.Children.Add(controlRow)
 
         this.Content <- root
+
+    /// Parameterless constructor keeps the original default behaviour.
+    new() = MainWindow("Sin Curve Plotter", 10.0)
 
     member private _.SliderChanged(e: AvaloniaPropertyChangedEventArgs) =
         if e.Property = Slider.ValueProperty then
