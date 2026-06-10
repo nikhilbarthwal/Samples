@@ -1,3 +1,6 @@
+**Original:**
+
+```
 class Base:
     protected F1
     protected F2
@@ -11,10 +14,12 @@ class DerivedA: Base
 class DerivedB: Base
     public FB1
     public FB2
+```
+___
 
-______________________________________________________
+**New Design:**
 
-
+```
 interface BaseInput:
     public F1
     public F2
@@ -22,7 +27,6 @@ interface BaseInput:
 class Base(BaseInput):
     public F3
     public F4
-
 
 internal DerivedInputA(p1, p2): BaseInput
     public FA1
@@ -49,3 +53,5 @@ class DerivedB(input: DerivedInputB)
     public FB2 = input.FB2
     public property Base(input)
     // Add F3 and F4 if needed
+```
+
