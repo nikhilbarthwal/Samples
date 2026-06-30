@@ -25,6 +25,9 @@ public class convert
         byte sp = 32;
         byte nl = 10;
         byte tb = 9;
+		byte hyphen = 45;
+		byte dot = 46;
+		
 
         ArrayList<Byte> data = new ArrayList<Byte>();
 
@@ -35,15 +38,17 @@ public class convert
             for(int i = 0; i<s.length(); i++)
             {
                 int k = (int) s.charAt(i);
-                    if (k==9)
-                    {
-                        if (f.equals("Makefile")||f.endsWith(".sln")||f.endsWith(".fsproj")||f.endsWith(".csproj")) { p+=1; S.push(tb); }
-                        else { p+=4; S.push(sp); S.push(sp); S.push(sp); S.push(sp); }
-                    }
-                else if (k==13) /* carriage return */  p++;
-                else if ((k>31) && (k<128)) { p++; S.push((byte) k); }
-                else if (k==nl) { System.out.println("Illegal new line at line: " + l + " position: " + p); System.exit(1); }
-                else { System.out.println("Illegal char at line: " + l + " position: " + p + " with value " + k); p++; }
+                if (k==9)
+                {
+                    if (f.equals("Makefile")||f.endsWith(".sln")||f.endsWith(".fsproj")||f.endsWith(".csproj")) { p+=1; S.push(tb); }
+                    else { p+=4; S.push(sp); S.push(sp); S.push(sp); S.push(sp); }
+                }
+                else if (k == 13) /* carriage return */  p++;
+                else if ((k > 31) && (k<128)) { p++; S.push((byte) k); }
+                else if (k == nl) { System.out.println("Illegal new line at line: " + l + " position: " + p); System.exit(1); }
+                else if (k == 8212) { p++; S.push(hyphen); }
+				else if (k == 183) { p++; S.push(dot); }
+				else { System.out.println("Illegal char at line: " + l + " position: " + p + " with value " + k); p++; }
             }
 
             while ( (!S.empty()) && (S.peek() == sp) ) S.pop();
