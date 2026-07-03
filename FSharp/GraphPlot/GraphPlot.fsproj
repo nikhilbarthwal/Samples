@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ScottPlot.Avalonia 5.1.59 requires Avalonia >= 12 (and Avalonia.Skia >= 12),
+         so Avalonia is pinned to 12 to match. Mismatched majors is what caused the
+         "Could not load Avalonia.Controls, Version=12.0.0.0" crash. -->
+    <PackageReference Include="Avalonia" Version="12.0.5" />
+    <PackageReference Include="Avalonia.Desktop" Version="12.0.5" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="12.0.5" />
+    <PackageReference Include="ScottPlot.Avalonia" Version="5.1.59" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>
