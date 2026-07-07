@@ -56,6 +56,7 @@ bool renderSineToPng(double frequencyHz, const std::string& outPath,
     }
 
     auto f = figure(true);  // quiet mode: no gnuplot window
+    f->backend()->run_command("unset warnings");   // <-- add this line
     f->size(widthPx, heightPx);
 
     // Cosine sampled coarsely so the scatter markers read as distinct dots.
@@ -80,6 +81,7 @@ bool renderSineToPng(double frequencyHz, const std::string& outPath,
               std::to_string(frequencyHz) + " Hz");
     ax->xlabel("t (s)");
     ax->ylabel("amplitude");
+    ax->xlim({-2, 3});
     ax->ylim({-1.2, 1.2});
     ax->grid(true);
     matplot::legend({"sin", "cos"});
