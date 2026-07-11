@@ -5,7 +5,7 @@ def calculate_sha256(file_path, chunk_size=4096):
     """Calculates the SHA-256 hash of a file by reading it in chunks."""
     sha256_hash = hashlib.sha256()
     try:
-        print("Processing:", file_path)
+        print("# Processing:", file_path)
         with open(file_path, "rb") as f:
             # Read the file in small chunks to protect memory usage
             for byte_block in iter(lambda: f.read(chunk_size), b""):
@@ -39,6 +39,7 @@ def map_folder(root_folder):
 # --- Example Usage ---
 def main():
     m = map_folder('/home/nikhil/Dropbox/Nikhil')
+    r = {}
     files = list(m.keys())
     for r1 in files:
         for r2 in files:
@@ -46,6 +47,14 @@ def main():
                 continue
 
             if m[r1] == m[r2]:
-                print("Duplicates:", r1, r2)
+                k = min(r1, r2)
+                v = max(r1, r2)
+                r[k] = v
+                print("# Duplicates:", r1, r2)
+    print("# Count = " + str(len(r)))
+    for k in r.keys():
+        print("rm -rf \"" + k + "\"  \"" + v + "\"")
+
+
 
 main()
