@@ -32,7 +32,7 @@ def map_folder(root_folder):
             # Note: If two different folders have a file with the same name,
             # using 'filename' as a key will overwrite the previous entry.
             # To fix this, you can change the key to 'full_path' instead.
-            file_hash_map[filename] = file_hash
+            file_hash_map[full_path] = file_hash
 
     return file_hash_map
 
@@ -53,7 +53,7 @@ def main():
                 print("# Duplicates:", r1, r2)
     print("# Count = " + str(len(r)))
     for k in r.keys():
-        print("rm -rf \"" + k + "\"  \"" + v + "\"")
+        print("rm -rf \"" + k + "\"  \"" + r[k] + "\"")
 
 
 
