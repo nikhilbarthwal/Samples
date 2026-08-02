@@ -53,8 +53,7 @@ def main():
                 print("# Duplicates:", r1, r2)
     print("# Count = " + str(len(r)))
     for k in r.keys():
-        print("rm -rf \"" + k + "\"  \"" + r[k] + "\"")
-
+        print("rm -rf\t\"" + k + "\"  \"" + r[k] + "\"")
 
 
 main()
