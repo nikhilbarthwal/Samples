@@ -7,6 +7,7 @@ from weasyprint import HTML
 
 py_lexer = get_lexer_by_name("python3", stripall=True)
 fs_lexer = get_lexer_by_name("fsharp", stripall=True)
+cs_lexer = get_lexer_by_name("csharp", stripall=True)
 txt_lexer = get_lexer_by_name("text", stripall=True)
 cpp_lexer = get_lexer_by_name("c++", stripall=True)
 xml_lexer = XmlLexer()
@@ -70,6 +71,8 @@ def conv(filename):
 
     if filename.endswith(".fs"):
         code_html = highlight(code, fs_lexer, formatter)
+    elif filename.endswith(".cs"):
+        code_html = highlight(code, cs_lexer, formatter)
     elif filename.endswith(".py"):
         code_html = highlight(code, py_lexer, formatter)
     elif filename.endswith(".csproj"):
@@ -84,7 +87,6 @@ def conv(filename):
         code_html = highlight(code, cpp_lexer, formatter)
     elif filename.endswith(".hpp"):
         code_html = highlight(code, cpp_lexer, formatter)
-
     else:
         code_html = highlight(code, txt_lexer, formatter)
 
@@ -97,11 +99,11 @@ def conv(filename):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3:
         print("Usage: python script.py file1.fs file2.fs ...")
     else:
         text = header()
-        for filename in sys.argv[1:]:
+        for filename in sys.argv[2:]:
             if filename.startswith("Archive"):
                 print("Ignoring:" + filename)
             else:
@@ -114,4 +116,4 @@ if __name__ == "__main__":
         #    file.write(text)
 
         print("Converting HTML into PDF")
-        HTML(string=text).write_pdf('code.pdf')
+        HTML(string=text).write_pdf(sys.argv[1])
