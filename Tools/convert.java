@@ -41,12 +41,15 @@ public class convert
                 int k = (int) s.charAt(i);
                 if (k==9)
                 {
-                    if (f.equals("Makefile")||f.endsWith(".sln")||f.endsWith(".fsproj")||f.endsWith(".csproj")) { p+=1; S.push(tb); }
+                    if (f.equals("Makefile")||f.endsWith(".sln")||
+                        f.endsWith(".fsproj")||f.endsWith(".csproj"))
+                        { p+=1; S.push(tb); }
                     else { p+=4; S.push(sp); S.push(sp); S.push(sp); S.push(sp); }
                 }
                 else if (k == 13) /* carriage return */  p++;
                 else if ((k > 31) && (k<128)) { p++; S.push((byte) k); }
-                else if (k == nl) { System.out.println("Illegal new line at line: " + l + " position: " + p); System.exit(1); }
+                else if (k == nl) { System.out.println("Illegal new line at line: " +
+                                    l + " position: " + p); System.exit(1); }
                 else if (k == 8212) { p++; S.push(hyphen); }
 				else if (k == 160) { p++; S.push(sp); }
 				else if (k == 183) { p++; S.push(dot); }
@@ -54,7 +57,13 @@ public class convert
 				else if (k == 9474) { p++; S.push(vert); }
 				else if (k == 9500) { p++; S.push(vert); }
 				else if (k == 9492) { p++; S.push(hyphen); }
-				else { System.out.println("Illegal char at line: " + l + " position: " + p + " with value " + k); p++; }
+				else
+                {
+                    System.out.println("Illegal char at line: " + l + " position: "
+                        + p + " with value " + s.charAt(i) + "(" + k + ")");
+                    // if (f.endsWith(".sln")) S.push((byte) k);
+                    p++;
+                }
             }
 
             while ( (!S.empty()) && (S.peek() == sp) ) S.pop();
