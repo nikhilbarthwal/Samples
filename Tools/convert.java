@@ -25,10 +25,10 @@ public class convert
         byte sp = 32;
         byte nl = 10;
         byte tb = 9;
-		byte hyphen = 45;
-		byte dot = 46;
-		byte vert = 124;
-		
+        byte hyphen = 45;
+        byte dot = 46;
+        byte vert = 124;
+
 
         ArrayList<Byte> data = new ArrayList<Byte>();
 
@@ -50,18 +50,16 @@ public class convert
                 else if ((k > 31) && (k<128)) { p++; S.push((byte) k); }
                 else if (k == nl) { System.out.println("Illegal new line at line: " +
                                     l + " position: " + p); System.exit(1); }
+                else if (k == 8211) { p++; S.push(hyphen); }
                 else if (k == 8212) { p++; S.push(hyphen); }
-				else if (k == 160) { p++; S.push(sp); }
-				else if (k == 183) { p++; S.push(dot); }
-				else if (k == 9472) { p++; S.push(hyphen); }
-				else if (k == 9474) { p++; S.push(vert); }
-				else if (k == 9500) { p++; S.push(vert); }
-				else if (k == 9492) { p++; S.push(hyphen); }
-				else
+                else if (k == 160) { p++; S.push(sp); }
+                else if (k == 183) { p++; S.push(dot); }
+                else if (k == 9472) { p++; S.push(hyphen); }
+                else if (k == 9492) { p++; S.push(hyphen); }
+                else
                 {
                     System.out.println("Illegal char at line: " + l + " position: "
-                        + p + " with value " + s.charAt(i) + "(" + k + ")");
-                    // if (f.endsWith(".sln")) S.push((byte) k);
+                                    + p + " with value " + s.charAt(i) + "(" + k + ")");
                     p++;
                 }
             }
