@@ -8,27 +8,31 @@ import java.util.Stack;
 
 public class convert
 {
-    //private static boolean tab = true;
+    private int l = 1;
+    private int p = 1;
+    private byte sp = 32;
+    private byte nl = 10;
+    private byte tb = 9;
+    private byte hyphen = 45;
+    private byte dot = 46;
+    private byte vert = 124;
 
     public static void main(String[] args) throws IOException
     {
         if (args.length <1) { System.out.println("No files to process!"); }
-        else { for(String f : args) process(f); }
+        else
+        {
+            for(String f : args)
+                if (f.endsWith(".md"))
+                    process(f);
+                else
+                    processMD(f);
+        }
     }
 
     private static void process(String f) throws IOException
     {
         System.out.println("Process File: " + f);
-
-        int l = 1;
-        int p = 1;
-        byte sp = 32;
-        byte nl = 10;
-        byte tb = 9;
-        byte hyphen = 45;
-        byte dot = 46;
-        byte vert = 124;
-
 
         ArrayList<Byte> data = new ArrayList<Byte>();
 
@@ -80,4 +84,21 @@ public class convert
         FileOutputStream fos = new FileOutputStream(f); fos.write(byteArray); fos.close();
         System.out.println(data.size() + " bytes written to file " + f + "\n\n");
     }
+
+    private static void processMD(String f) throws IOException
+    {
+        System.out.println("Process MD File: " + f);
+
+        Path path = Paths.get(fileName);
+        String content = Files.readString(path, StandardCharsets.UTF_8);
+
+        content = content.replace("\r", "");
+        content = content.replace((char) 8211, '-');
+        content = content.replace((char) 8212, '-');
+        content = content.replaceAll("(?m)[ \\t]+$", "");   // trailing whitespace on each line
+        content = content.replaceAll("\\n{2,}\\z", "\n");   // many blank lines at end -> one newline
+
+        Files.writeString(path, content, StandardCharsets.UTF_8);
+    }
+
 }
