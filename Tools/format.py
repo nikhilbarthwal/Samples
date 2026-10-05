@@ -10,6 +10,8 @@ fs_lexer = get_lexer_by_name("fsharp", stripall=True)
 cs_lexer = get_lexer_by_name("csharp", stripall=True)
 txt_lexer = get_lexer_by_name("text", stripall=True)
 cpp_lexer = get_lexer_by_name("c++", stripall=True)
+rs_lexer = get_lexer_by_name("rust", stripall=True)
+toml_lexer = get_lexer_by_name("toml", stripall=True)
 xml_lexer = XmlLexer()
 style_name="sas"
 formatter = HtmlFormatter(linenos=False, full=False, style=style_name)
@@ -81,6 +83,10 @@ def conv(filename):
         code_html = highlight(code, xml_lexer, formatter)
     elif filename.endswith(".slnx"):
         code_html = highlight(code, xml_lexer, formatter)
+    elif filename.endswith(".rs"):
+        code_html = highlight(code, rs_lexer, formatter)
+    elif filename.endswith(".toml"):
+        code_html = highlight(code, toml_lexer, formatter)
     elif filename.endswith(".cpp"):
         code_html = highlight(code, cpp_lexer, formatter)
     elif filename.endswith(".h"):
@@ -117,3 +123,4 @@ if __name__ == "__main__":
 
         print("Converting HTML into PDF")
         HTML(string=text).write_pdf(sys.argv[1])
+

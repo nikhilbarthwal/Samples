@@ -1,7 +1,7 @@
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -36,7 +36,7 @@ public class convert
 
         ArrayList<Byte> data = new ArrayList<Byte>();
 
-        for(String s : Files.readAllLines(Paths.get(f), Charset.defaultCharset()))
+        for(String s : Files.readAllLines(Paths.get(f), StandardCharsets.UTF_8))
         {
             Stack<Byte> S = new Stack<Byte>();
 
