@@ -26,12 +26,14 @@ def header():
         <meta charset="UTF-8">
         <style>
 
+          /* The white space around the code is the page margin plus the body's margin and padding.
+             The body margin is set here because WeasyPrint otherwise adds 8px of its own. */
           @page {{
-            margin: 0.5in;
+            margin: 0.25in;
             size: Letter;
           }}
 
-            body {{ font-family: 'Segoe UI', sans-serif; padding: 40px; background-color: #fff; }}
+            body {{ font-family: 'Segoe UI', sans-serif; margin: 4px; padding: 20px; background-color: #fff; }}
 
             /* Code Container */
             .code-box {{
@@ -56,7 +58,7 @@ def header():
             {style_defs}
 
             .highlight {{ margin: 0; padding: 15px; background-color: #fff; }}
-            pre {{ margin: 0; white-space: pre-wrap; font-size: 11px; }}
+            pre {{ margin: 0; white-space: pre-wrap; font-size: 9.5px; }}
         </style>
     </head>
     <body>"""
@@ -80,6 +82,8 @@ def conv(filename):
     elif filename.endswith(".csproj"):
         code_html = highlight(code, xml_lexer, formatter)
     elif filename.endswith(".fsproj"):
+        code_html = highlight(code, xml_lexer, formatter)
+    elif filename.endswith(".vcxproj"):
         code_html = highlight(code, xml_lexer, formatter)
     elif filename.endswith(".slnx"):
         code_html = highlight(code, xml_lexer, formatter)
